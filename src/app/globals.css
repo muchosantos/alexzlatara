@@ -41,12 +41,11 @@
 }
 
 .modelSection {
-  padding: 0rem 1rem;
   height: 100vh;
   scroll-snap-align: start;
 }
 
-.modelSection:nth-child(1) {
+/* .modelSection:nth-child(1) {
   background-image: url('/images/ring.jpg');
   background-position: center;
   background-size: cover;
@@ -83,23 +82,32 @@
 
 .modelSection:nth-child(6) {
   background-color: #1c1b1b;
-}
+} */
 
 .homepageHeading {
   font-size: 4rem;
   font-family: 'Cormorant Garamond', serif !important;
   font-weight: 400;
   letter-spacing: -0.07rem;
-  color: #ffffff;
+  color: #fff;
 }
 
 .homepageText {
   font-weight: 200;
-  color: #ffffffb3;
+  color: #fff;
   letter-spacing: -0.02rem;
   width: 450px;
   margin: 0 auto;
   line-height: 1.5;
+}
+
+.homepageBtn {
+  width: 300px;
+  background-color: #fff;
+  color: '#000';
+  border-radius: 30px;
+  padding: 1rem;
+  border: none;
 }
 
 @media (min-width: 735px) and (max-width: 1023px) {

@@ -6,41 +6,59 @@ import DefaulyOverlayContent from '@/components/home/DefaultOverlayContent'
 
 const sections = [
   {
+    title: 'Prstenje',
+    description: 'Predivno prstenje za posebne trenutke.',
+    theme: 'rgba(214, 231, 246, 0.45)',
+    text: 'black',
+    image: '/images/prstenje2.jpg',
+    url: 'prstenje',
+  },
+  {
+    title: 'Burme',
+    description: 'Predivno prstenje za posebne trenutke.',
+    theme: 'rgba(214, 231, 246, 0.45)',
+    text: 'black',
+    image: '/images/burme.jpg',
+    url: 'burme',
+  },
+  {
     title: 'Narukvice',
     description: 'Narukvice koje ističu vašu eleganciju',
     theme: 'rgba(255, 242, 0, 0.05)',
     text: 'black',
+    image: '/images/shad.jpg',
+    url: 'narukvice',
   },
   {
     title: 'Ogrlice',
     description: 'Ogrlice koje naglašavaju vašu lepotu.',
     theme: 'rgba(214, 231, 246, 0.45)',
     text: 'black',
+    image: '/images/ogrlice.jpg',
+    url: 'ogrlice',
   },
   {
-    title: 'Satovi',
-    description: 'Muški i ženski satovi za svaku priliku',
-    theme: 'rgba(253, 235, 218, 0.45)',
-    text: 'black',
-  },
-  {
-    title: 'Prstenje',
-    description: 'Predivno prstenje za posebne trenutke.',
-    theme: 'rgba(214, 231, 246, 0.45)',
-    text: 'black',
-  },
-  {
-    title: 'Mindjuse',
+    title: 'Mindjuše',
     description: 'Predivno prstenje za posebne trenutke.',
     theme: 'rgba(255, 242, 0, 0.05)',
     text: 'black',
+    image: '/images/mindjuse.jpg',
+    url: 'mindjuse',
   },
   {
-    title: 'Alex Zlatara',
-    description: '',
-    theme: '#000',
-    text: 'white',
+    title: 'Privesci',
+    description: 'Predivno prstenje za posebne trenutke.',
+    theme: 'rgba(214, 231, 246, 0.45)',
+    text: 'black',
+    image: '/images/privesci.jpg',
+    url: 'privesci',
   },
+  // {
+  //   title: 'Alex Zlatara',
+  //   description: '',
+  //   theme: '#000',
+  //   text: 'white',
+  // },
 ]
 
 export default function Home() {
@@ -55,6 +73,7 @@ export default function Home() {
                 // ovo je indentifikator koja sekcija je u pitanju
                 key={i}
                 sectionID={section.title}
+                image={section.image}
                 className='modelSection'
                 overlayNode={
                   <DefaulyOverlayContent
@@ -62,6 +81,7 @@ export default function Home() {
                     description={section.description}
                     theme={section.theme}
                     txtColor={section.text}
+                    url={section.url}
                   />
                 }
               />

@@ -1,8 +1,9 @@
 'use client'
+import Image from 'next/image'
 import React, { useEffect, useRef } from 'react'
 import useModel from './../../hooks/useModel'
 
-const ModelSection = ({ sectionID, overlayNode, ...props }) => {
+const ModelSection = ({ sectionID, overlayNode, image, ...props }) => {
   const sectionRef = useRef(null)
 
   const { registerModel } = useModel()
@@ -17,7 +18,21 @@ const ModelSection = ({ sectionID, overlayNode, ...props }) => {
     }
   }, [sectionRef, sectionID, overlayNode])
 
-  return <div {...props} ref={sectionRef}></div>
+  return (
+    <div {...props} ref={sectionRef}>
+      <Image
+        src={image}
+        alt={'Alex Zlatara'}
+        style={{
+          objectFit: 'cover',
+          width: '100%',
+          height: '100%',
+        }}
+        width={5000}
+        height={5000}
+      />
+    </div>
+  )
 }
 
 export default ModelSection

@@ -12,21 +12,21 @@ const MenuContactSection = () => {
         Kontaktirajte nas
       </h6>
       <a
-        className='block text-[#006039] border-b-[#006039] text-[2rem] hover:text-[#b15b14] hover:border-b-[#b15b14] transition-colors duration-300'
+        className='block text-[#006032a0] hover:text-[#006032] border-b-[#006039] text-[2rem] hover:border-b-[#006039] transition-colors duration-300'
         href='mailto:info@alexzlatara.co.rs'
         style={{ textDecoration: 'none', fontFamily: 'var(--font-lato)' }}
       >
         info@alexzlatara.co.rs
       </a>
       <a
-        className='block text-[#006039]  border-b-[#006039] text-[1.1rem] my-3 hover:text-[#b15b14] hover:border-b-[#b15b14] transition-colors duration-300'
+        className='block text-[#006032a0] hover:text-[#006032]  border-b-[#006039] text-[1.1rem] my-3 hover:border-b-[#006039] transition-colors duration-300'
         href='mailto:info@alexzlatara.co.rs'
         style={{ textDecoration: 'none', fontFamily: 'var(--font-lato)' }}
       >
         +361 60 33 523
       </a>
       <a
-        className='block  text-[#006039] border-b-[#006039] text-[1.1rem] hover:text-[#b15b14] hover:border-b-[#b15b14] transition-colors duration-300'
+        className='block  text-[#006032a0] hover:text-[#006032] border-b-[#006039] text-[1.1rem] hover:border-b-[#006039] transition-colors duration-300'
         href='mailto:info@alexzlatara.co.rs'
         style={{ textDecoration: 'none', fontFamily: 'var(--font-lato)' }}
       >

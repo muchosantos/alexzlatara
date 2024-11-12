@@ -1,6 +1,6 @@
 'use client'
 
-import { capitalizeFirstLetter } from '@/helpers'
+import { capitalizeFirstLetter, chooseDescription } from '@/helpers'
 import Image from 'next/image'
 import {
   Breadcrumb,
@@ -11,6 +11,12 @@ import {
 } from '../ui/breadcrumb'
 
 const CollectionBaner = ({ collection }) => {
+  const safeCollection =
+    typeof collection === 'string' ? collection : 'default.jpg'
+
+  // Formiraj putanju ka slici
+  const imagePath = `/baners/${safeCollection}.jpg`
+
   return (
     <div className='md:block lg:flex w-full justify-between h-[100%] relative'>
       <div className='lg:w-[35%] bg-[#006032] px-[2rem] py-[4rem] lg:px-[4rem] lg:pt-8 lg:pb-16 lg:flex flex-col justify-between'>
@@ -22,25 +28,19 @@ const CollectionBaner = ({ collection }) => {
             style={{ fontFamily: 'var(--font-lato)' }}
           >
             {' '}
-            {capitalizeFirstLetter(collection)}
+            {capitalizeFirstLetter(
+              collection === 'mindjuse' ? 'Mindjuše' : collection
+            )}
           </h3>
           <p className='text-white' style={{ fontFamily: 'var(--font-lato)' }}>
-            Prstenovi su bezvremeni komad nakita koji se može nositi kao modni
-            detalj ili da označi nešto posebno. Dolaze u različitim stilovima,
-            veličinama i materijalima, uključujući zlato, belo zlato, platinu i
-            dragulje.
-            {/* dragulje. Naša kolekcija sadrži klasične i moderne prstenove koji se
-            mogu nositi za svakodnevne prilike ili posebne događaje. Bez obzira
-            da li tražite odvažan komad koji privlači pažnju ili bezvremensku
-            klasiku, imamo nešto za svakoga. Naš izbor uključuje dijamantske i
-            draguljaste prstenove, vereničke prstenove, burme i još mnogo toga. */}
+            {chooseDescription(collection)}
           </p>
         </div>
       </div>
 
       <div className='h-[200px] w-[100%] md:h-[300px] md:w-[100%] lg:h-[500px] lg:w-[65%] relative'>
         <Image
-          src={'/baners/search.jpg'}
+          src={imagePath}
           alt='baner'
           className='w-full h-full object-cover'
           width={5000}
@@ -74,7 +74,7 @@ const BreadCrumbSection = ({ collection }) => {
               className='uppercase text-[.65rem]  text-[#ffffff84]'
               style={{ fontFamily: 'var(--font-lato)' }}
             >
-              {collection}
+              {collection === 'mindjuse' ? 'Mindjuše' : collection}
             </span>
           </BreadcrumbLink>
         </BreadcrumbItem>

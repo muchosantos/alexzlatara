@@ -1,19 +1,33 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
-const ProductBox = () => {
+const ProductBox = ({
+  price,
+  title,
+  priceData,
+  image,
+  slug,
+  collection,
+  gallery,
+}) => {
+  function formatPrice(price) {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+  }
+
   return (
     <div className='relative w-full h-0 pb-[100%] z-8 cursor-pointer'>
-      <Image
-        src='/images/min2.jpg' // ispravna putanja
-        alt='Opis slike'
-        width={5000} // postavite na željenu širinu
-        height={5000} // postavite na željenu visinu
-        className='absolute inset-0 w-full h-full object-cover ' // ili object-cover
-      />
+      <Link href={`/${collection}/${slug}`}>
+        <Image
+          src={image.url}
+          alt={title}
+          width={5000}
+          height={5000}
+          className='absolute inset-0 w-full h-full object-cover '
+        />
 
-      {/* {ifGalleryImagesExist && (
+        {/* {ifGalleryImagesExist && (
               <div className='absolute h-full w-full grid place-content-center'>
                 <Image
                   src={
@@ -27,20 +41,23 @@ const ProductBox = () => {
               </div>
             )} */}
 
-      <div className='absolute bottom-3 left-4'>
-        <h5
-          className='font-regular uppercase text-[1rem] tracking-tight'
-          style={{ fontFamily: 'var(--font-lato)' }}
-        >
-          Verenicki prsten sa dijamantom
-        </h5>
-        <div
-          className='text-[2rem] tracking-tight xl:text-[2.5rem]'
-          style={{ fontFamily: 'var(--font-lato)' }}
-        >
-          15,000 din
+        <div className='absolute bottom-3 left-4'>
+          <h5
+            className='font-regular uppercase text-[1rem] tracking-tight'
+            style={{ fontFamily: 'var(--font-lato)' }}
+          >
+            {title}
+          </h5>
+          {price && (
+            <div
+              className='text-[2rem] tracking-tight xl:text-[2.5rem]'
+              style={{ fontFamily: 'var(--font-lato)' }}
+            >
+              {formatPrice(priceData)} din
+            </div>
+          )}
         </div>
-      </div>
+      </Link>
     </div>
   )
 }

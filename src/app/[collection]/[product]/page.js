@@ -28,20 +28,32 @@ import Footer from '@/components/custom/Footer'
 import SpaceFromTop from '@/components/custom/SpaceFromTop'
 import Image from 'next/image'
 import ProductBox from '@/components/custom/ProductBox'
+import { wixServer } from '@/lib/wixServer'
 
-const Product = ({ params }) => {
+const Product = async ({ params }) => {
   const collection = params.collection
   const product = params.product
+
+  const wixClient = await wixServer()
+
+  const { items } = await wixClient.products
+    .queryProducts()
+    .eq('slug', product)
+    .find()
+
+  const item = items[0]
+
+  console.log(item)
 
   return (
     <Main navBg={'#fff'}>
       <SpaceFromTop />
-      <div className='px-[1.5rem] md:px-[2rem] xl:px-[4rem] 2xl:px-[4rem]'>
+      {/* <div className='px-[1.5rem] md:px-[2rem] lg:px-[4rem] xl:px-[4rem] 2xl:px-[4rem]'>
         <BreadCrumbSection collection={collection} product={product} />
         <ProductLandingSection />
         <CarouselSection />
         <CarouselSectionRecommend />
-      </div>
+      </div> */}
 
       <Footer />
     </Main>
@@ -100,13 +112,13 @@ const ProductLandingSection = () => {
       </Carousel>
       <div className='mb-[2rem]'>
         <h2
-          className='text-[1.2rem] font-medium lg:text-[1.5rem] xl:text-[2rem] 2xl:text-[2.5rem] tracking-tighter'
+          className='text-[1.2rem] font-medium md:text-[2.5rem] lg:text-[1.5rem] xl:text-[2rem] 2xl:text-[2.5rem] tracking-tighter'
           style={{ fontFamily: 'var(--font-lato)' }}
         >
           Pulse mono hoop
         </h2>
         <span
-          className='text-[.9rem] text-gray-600 block lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem]'
+          className='text-[.9rem] text-gray-600 block md:text-[1.2rem] lg:text-[1rem] xl:text-[1.1rem] 2xl:text-[1.2rem]'
           style={{ fontFamily: 'var(--font-lato)' }}
         >
           white gold and diamond
@@ -121,13 +133,13 @@ const ProductLandingSection = () => {
 
         <div className='my-[2rem]'>
           <button
-            className='bg-black text-white w-[100%] py-2 uppercase rounded-2xl'
+            className='bg-black text-white w-[100%] py-4 uppercase rounded-2xl'
             style={{ fontFamily: 'var(--font-lato)' }}
           >
             DODAJTE U KORPU
           </button>
           <button
-            className='border border-gray-600 text-black w-[100%] py-2 mt-[1rem] uppercase rounded-2xl'
+            className='border border-gray-600 text-black w-[100%] py-4 mt-[1rem] uppercase rounded-2xl'
             style={{ fontFamily: 'var(--font-lato)' }}
           >
             KUPITE ODMAH
