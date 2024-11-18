@@ -55,7 +55,7 @@ const Main = ({ children, navBg, light }) => {
       {children}
 
       <AnimatePresence>
-        {openFilter && (
+        {/* {openFilter && (
           <>
             <Overlay
               key='overlay-filter'
@@ -66,7 +66,7 @@ const Main = ({ children, navBg, light }) => {
               setOpen={() => setOpenFilter(false)}
             />
           </>
-        )}
+        )} */}
 
         {openSearch && (
           <>

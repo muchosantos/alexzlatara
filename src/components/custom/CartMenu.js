@@ -2,9 +2,11 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { MdOutlineArrowBackIos } from 'react-icons/md'
+import { useCart } from '@/context/cart'
+import { formatPrice } from '@/helpers'
 
 const CartMenu = ({ setOpen }) => {
-  const cart = ['da']
+  const { cart, cartTotalQuantity, cartTotalAmount } = useCart()
 
   return (
     <motion.div
@@ -47,8 +49,8 @@ const CartMenu = ({ setOpen }) => {
 
       {Object.keys(cart).length !== 0 && (
         <div className='py-8'>
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <CartItem key={item} />
+          {cart.map((item, index) => (
+            <CartItem key={index} item={item} />
           ))}
 
           <div className='my-16'>
@@ -63,7 +65,7 @@ const CartMenu = ({ setOpen }) => {
                 className='text-[1.5rem] uppercase font-bold'
                 style={{ fontFamily: 'var(--font-lato)' }}
               >
-                10
+                {cartTotalQuantity}
               </span>
             </div>
             <div className='flex justify-between items-center'>
@@ -77,7 +79,16 @@ const CartMenu = ({ setOpen }) => {
                 className='text-[1.5rem] uppercase font-bold'
                 style={{ fontFamily: 'var(--font-lato)' }}
               >
-                100.000 RSD
+                {formatPrice(cartTotalAmount)},00 RSD
+              </span>
+            </div>
+            <div className='flex justify-between items-center mt-10'>
+              <span
+                style={{ fontFamily: 'var(--font-lato)' }}
+                className='text-[1rem] text-red-500'
+              >
+                *Nakon poručivanja očekujte poziv od strane našeg tima iz
+                Zlatare Alex radi potvrde i dodatnih informacija.
               </span>
             </div>
           </div>
@@ -104,32 +115,38 @@ const CartMenu = ({ setOpen }) => {
 
 export default CartMenu
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
+  const { removeFromCart } = useCart()
+
   return (
     <div className='border-b border-gray-200 py-4'>
-      <div className='w-full h-full'>
+      <div className='w-full h-[300px]'>
         <Image
-          src='/images/min2.jpg' // ispravna putanja
+          src={item.media.mainMedia.image.url} // ispravna putanja
           alt='Opis slike'
           width={5000} // postavite na željenu širinu
           height={5000} // postavite na željenu visinu
-          className='w-full h-full object-cover' // ili object-cover
+          className='w-[100%] h-[100%] object-cover' // ili object-cover
         />
       </div>
 
       <div className='flex flex-col justify-between gap-4 mt-4'>
         <div className='flex justify-between items-baseline'>
-          <span className='font-medium text-[1.3rem]'>
-            TRIPOD TABLE LAMP X1
-          </span>
+          <span className='font-medium text-[1.3rem]'>{item.name}</span>
           <span className='text-[10px] text-gray-600 border border-black rounded-[10px] w-fit p-2'>
-            LARGE
+            Količina: {item.qty}
           </span>
         </div>
 
         <div className='flex justify-between items-baseline'>
-          <span className='text-[1.5rem] text-black'>$10.000</span>
-          <span className='text-[.9rem] cursor-pointer transition-colors duration-300 hover:text-red-500'>
+          <span className='text-[1.5rem] text-black'>
+            {' '}
+            {formatPrice(item.priceData.price)},00 RSD
+          </span>
+          <span
+            className='text-[.9rem] cursor-pointer transition-colors duration-300 hover:text-red-500'
+            onClick={() => removeFromCart(item._id)}
+          >
             Uklonite
           </span>
         </div>

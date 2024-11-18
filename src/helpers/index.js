@@ -4,6 +4,10 @@ export const capitalizeFirstLetter = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
 
+export const removeHTMLTags = (str) => {
+  return str.replace(/<[^>]*>/g, '')
+}
+
 export const chooseDescription = (collection) => {
   if (collection === 'prstenje') {
     return 'Prstenovi su bezvremeni komad nakita koji se može nositi kao modni detalj ili da označi nešto posebno. Dolaze u različitim stilovima, veličinama i materijalima, uključujući zlato, belo zlato, platinu i dragulje.'
@@ -17,5 +21,11 @@ export const chooseDescription = (collection) => {
     return 'Ogrlice su bezvremeni detalj koji može istaknuti eleganciju i nositi ličnu priču. U ponudi su raznovrsni stilovi, od suptilnih lančića do raskošnih komada, izrađeni od materijala poput zlata, belog zlata, platine, često ukrašeni dragim kamenjem. Svaka ogrlica može biti savršen završni dodir ili simbol posebnog trenutka.'
   } else if (collection === 'privesci') {
     return 'Privesci su jedinstveni detalji koji mogu dodati ličnu notu svakom komadu nakita ili preneti posebnu poruku. Dostupni su u raznim oblicima, stilovima i materijalima, poput zlata, belog zlata i platine, često ukrašeni dragim kamenjem. Svaki privesak nosi svoju priču i predstavlja poseban dodir koji osvežava i ističe vaš stil.'
+  } else if (collection === 'O nama') {
+    return 'Zlatara Alex je prestižna radnja koja nudi vrhunske, ručno rađene zlatne i srebrne nakite. Naši dizajni kombinuju klasičnu eleganciju i moderni šarm, savršeni za svaki trenutak.'
   }
+}
+
+export const formatPrice = (price) => {
+  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }

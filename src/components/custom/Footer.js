@@ -16,7 +16,7 @@ const Footer = () => {
             fontFamily: 'var(--font-lato)',
           }}
         >
-          U zlatarni Alex, od 2010. godine pažljivo biramo i nudimo jedinstveni
+          U zlatarni Alex, od 2006. godine pažljivo biramo i nudimo jedinstveni
           nakit, namenjen da se nosi svakodnevno i sa stilom, dostupan svima.
         </p>
       </div>
@@ -32,29 +32,50 @@ const Footer = () => {
         </h6>
         <a
           className='block text-[#fff] hover:text-[#ffffff] border-b-[#ecececa0] text-[1.8rem] lg:text-[2.2rem] hover:border-b-[#ffffff] transition-colors duration-300'
-          href='mailto:info@alexzlatara.co.rs'
+          href='mailto:zlatarealex1@gmail.com'
           style={{ textDecoration: 'none', fontFamily: 'var(--font-lato)' }}
         >
-          info@alexzlatara.co.rs
+          zlatarealex1@gmail.com
         </a>
-        <a
-          className='block text-[#fff] hover:text-[#ffffff]  border-b-[#fff] text-[.9rem] lg:text-[1rem] my-3 hover:border-b-[#ffffff] transition-colors duration-300'
-          href='mailto:info@alexzlatara.co.rs'
-          style={{ textDecoration: 'none', fontFamily: 'var(--font-lato)' }}
-        >
-          +361 60 33 523
-        </a>
+        <div className='flex gap-10'>
+          <a
+            className='block text-[#fff] hover:text-[#ffffff]  border-b-[#fff] text-[.9rem] lg:text-[1rem] my-3 hover:border-b-[#ffffff] transition-colors duration-300'
+            href='tel:0358815558'
+            style={{ textDecoration: 'none', fontFamily: 'var(--font-lato)' }}
+          >
+            035-88-15-558
+          </a>
+          <a
+            className='block text-[#fff] hover:text-[#ffffff]  border-b-[#fff] text-[.9rem] lg:text-[1rem] my-3 hover:border-b-[#ffffff] transition-colors duration-300'
+            href='tel:0642600897'
+            style={{ textDecoration: 'none', fontFamily: 'var(--font-lato)' }}
+          >
+            064-26-00-897
+          </a>
+        </div>
         <a
           className='block  text-[#fff] hover:text-[#ffffff] border-b-[#ecececa0] text-[.9rem] lg:text-[1rem] hover:border-b-[#ffffff] transition-colors duration-300'
           href='mailto:info@alexzlatara.co.rs'
           style={{ textDecoration: 'none', fontFamily: 'var(--font-lato)' }}
         >
-          Kriva Caršija 21, 35210 Svilajnac
+          Kriva Caršija 1, 35210 Svilajnac
         </a>
 
         <div className='flex gap-6 mt-8'>
-          <FaFacebookF size={36} color={'#fff'} />
-          <FaInstagram size={40} color={'#fff'} />
+          <a
+            href='https://www.facebook.com/zlatare.alex/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaFacebookF size={36} color={'#fff'} />
+          </a>
+          <a
+            href='https://www.instagram.com/zlatarealex/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            <FaInstagram size={40} color={'#fff'} />
+          </a>
         </div>
       </div>
 

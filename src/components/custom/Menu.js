@@ -3,17 +3,51 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { MdOutlineArrowBackIos } from 'react-icons/md'
 import { CiSearch } from 'react-icons/ci'
 import MenuContactSection from './MenuContactSection'
+import { useState } from 'react'
+import { Suggestions } from './SearchMenu'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 
-const categoris = [
-  'Prstenje & Burme',
-  'Narukvice',
-  'Ogrlice',
-  'Mindjuše',
-  'Satovi',
+const links = [
+  {
+    title: 'Prstenje',
+    url: '/prstenje',
+  },
+  {
+    title: 'Burme',
+    url: '/burme',
+  },
+  {
+    title: 'Narukvice',
+    url: '/narukvice',
+  },
+  // {
+  //   title: 'Ogrlice',
+  //   url: '/ogrlice',
+  // },
+  {
+    title: 'Mindjuše',
+    url: '/mindjuse',
+  },
+  {
+    title: 'Privesci',
+    url: '/privesci',
+  },
+  {
+    title: 'O nama',
+    url: '/o-nama',
+  },
 ]
-
 const Menu = ({ setOpen }) => {
-  const input = false
+  const [input, setInput] = useState('')
+  const router = useRouter()
+
+  const handleSearch = () => {
+    const searchKeyword = encodeURIComponent(input) // Enkodovanje za bezbedan URL
+    const url = `/search?keyword=${searchKeyword}` // Konstrukcija URL-a
+    router.replace(url)
+    setOpen(false)
+  }
 
   return (
     <motion.div
@@ -21,7 +55,7 @@ const Menu = ({ setOpen }) => {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -75 }}
       transition={{ duration: 0.2, delay: 0.1 }}
-      className='w-full h-full fixed top-0 left-0 bg-white z-50 xl:w-[30vw] pb-10 px-[1.5rem]'
+      className='w-full h-full fixed top-0 left-0 bg-white z-50 xl:w-[30vw] pb-10 px-[1.5rem] overflow-y-scroll'
     >
       <div>
         <div className='flex justify-between items-center py-[1.5rem]'>
@@ -43,6 +77,13 @@ const Menu = ({ setOpen }) => {
             style={{
               fontFamily: 'var(--font-lato)',
             }}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleSearch()
+              }
+            }}
           />
           <div>
             <CiSearch size={26} />
@@ -50,21 +91,30 @@ const Menu = ({ setOpen }) => {
         </div>
 
         <AnimatePresence>
-          {input && <div className='my-10'>Idemo na pretrage</div>}
+          {input !== '' && (
+            <Suggestions
+              suggestions={''}
+              pages={''}
+              input={input}
+              products={''}
+              handleSearch={handleSearch}
+            />
+          )}
 
-          {!input && (
+          {input === '' && (
             <>
               <div className='my-10'>
-                {categoris.map((item, i) => (
-                  <li
-                    key={i}
-                    style={{
-                      fontFamily: 'var(--font-lato)',
-                    }}
-                    className='list-none my-4 font-light text-[2rem]'
-                  >
-                    {item}
-                  </li>
+                {links.map((item, i) => (
+                  <Link href={item.url} key={i} onClick={() => setOpen(false)}>
+                    <li
+                      style={{
+                        fontFamily: 'var(--font-lato)',
+                      }}
+                      className='list-none my-4 font-light text-[2rem] cursor-pointer w-fit transition-colors duration-300 text-[#006032c2] hover:text-[#006032]'
+                    >
+                      {item.title}
+                    </li>
+                  </Link>
                 ))}
               </div>
 

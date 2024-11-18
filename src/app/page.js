@@ -7,7 +7,7 @@ import DefaulyOverlayContent from '@/components/home/DefaultOverlayContent'
 const sections = [
   {
     title: 'Prstenje',
-    description: 'Predivno prstenje za posebne trenutke.',
+    description: 'Predivno prstenje za posebne trenutke, uspomene i ljubav.',
     theme: 'rgba(214, 231, 246, 0.45)',
     text: 'black',
     image: '/images/prstenje2.jpg',
@@ -15,7 +15,7 @@ const sections = [
   },
   {
     title: 'Burme',
-    description: 'Predivno prstenje za posebne trenutke.',
+    description: 'Elegantne burme za važne trenutke, ljubav i predanost.',
     theme: 'rgba(214, 231, 246, 0.45)',
     text: 'black',
     image: '/images/burme.jpg',
@@ -23,23 +23,26 @@ const sections = [
   },
   {
     title: 'Narukvice',
-    description: 'Narukvice koje ističu vašu eleganciju',
+    description:
+      'Izuzetne narukvice koje osvajaju šarmom, ističu jedinstvenost i odišu elegancijom.',
     theme: 'rgba(255, 242, 0, 0.05)',
     text: 'black',
     image: '/images/shad.jpg',
     url: 'narukvice',
   },
-  {
-    title: 'Ogrlice',
-    description: 'Ogrlice koje naglašavaju vašu lepotu.',
-    theme: 'rgba(214, 231, 246, 0.45)',
-    text: 'black',
-    image: '/images/ogrlice.jpg',
-    url: 'ogrlice',
-  },
+  // {
+  //   title: 'Ogrlice',
+  //   description:
+  //     'Ogrlice koje pričaju priču, osvajaju sofisticiranošću i naglašavaju lepotu.',
+  //   theme: 'rgba(214, 231, 246, 0.45)',
+  //   text: 'black',
+  //   image: '/images/ogrlice.jpg',
+  //   url: 'ogrlice',
+  // },
   {
     title: 'Mindjuše',
-    description: 'Predivno prstenje za posebne trenutke.',
+    description:
+      'Ogrlice koje pričaju priču, osvajaju sofisticiranošću i naglašavaju lepotu svakog trenutka.',
     theme: 'rgba(255, 242, 0, 0.05)',
     text: 'black',
     image: '/images/mindjuse.jpg',
@@ -47,18 +50,13 @@ const sections = [
   },
   {
     title: 'Privesci',
-    description: 'Predivno prstenje za posebne trenutke.',
+    description:
+      'Privesci koji nose simboliku, očaravaju detaljima i čuvaju uspomene.',
     theme: 'rgba(214, 231, 246, 0.45)',
     text: 'black',
     image: '/images/privesci.jpg',
     url: 'privesci',
   },
-  // {
-  //   title: 'Alex Zlatara',
-  //   description: '',
-  //   theme: '#000',
-  //   text: 'white',
-  // },
 ]
 
 export default function Home() {

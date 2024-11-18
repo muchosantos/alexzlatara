@@ -10,17 +10,21 @@ import {
   BreadcrumbSeparator,
 } from '../ui/breadcrumb'
 
-const CollectionBaner = ({ collection }) => {
+const CollectionBaner = ({ collection, search, searchedKeyword, about }) => {
   const safeCollection =
     typeof collection === 'string' ? collection : 'default.jpg'
 
   // Formiraj putanju ka slici
-  const imagePath = `/baners/${safeCollection}.jpg`
+  const imagePath = !about
+    ? `/baners/${safeCollection}.jpg`
+    : '/baners/onama.jpg'
 
   return (
     <div className='md:block lg:flex w-full justify-between h-[100%] relative'>
       <div className='lg:w-[35%] bg-[#006032] px-[2rem] py-[4rem] lg:px-[4rem] lg:pt-8 lg:pb-16 lg:flex flex-col justify-between'>
-        <BreadCrumbSection collection={collection} />
+        {!search && <BreadCrumbSection collection={collection} />}
+
+        {search && <BreadCrumbSection collection={''} />}
 
         <div>
           <h3
@@ -33,14 +37,15 @@ const CollectionBaner = ({ collection }) => {
             )}
           </h3>
           <p className='text-white' style={{ fontFamily: 'var(--font-lato)' }}>
-            {chooseDescription(collection)}
+            {!search && chooseDescription(collection)}
+            {search && `Rezultati pretrage na: ${searchedKeyword}`}
           </p>
         </div>
       </div>
 
       <div className='h-[200px] w-[100%] md:h-[300px] md:w-[100%] lg:h-[500px] lg:w-[65%] relative'>
         <Image
-          src={imagePath}
+          src={!search ? imagePath : '/images/min2.jpg'}
           alt='baner'
           className='w-full h-full object-cover'
           width={5000}
