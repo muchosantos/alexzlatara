@@ -16,7 +16,7 @@ const ModelSection = ({ sectionID, overlayNode, image, ...props }) => {
         overlayNode,
       })
     }
-  }, [sectionRef, sectionID, overlayNode])
+  }, [sectionRef, sectionID, overlayNode, registerModel])
 
   return (
     <div {...props} ref={sectionRef}>

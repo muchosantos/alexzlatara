@@ -41,6 +41,7 @@ const Onama = () => {
       <div className='relative w-full h-[50vh]'>
         <Image
           src={'/baners/about1.jpg'}
+          alt={'Zlatara Alex'}
           className='object-cover w-full h-full'
           width={5000}
           height={5000}
@@ -92,6 +93,7 @@ const Onama = () => {
           src={'/baners/about2.jpg'}
           className='object-cover w-full h-full'
           width={5000}
+          alt={'Zlatara Alex'}
           height={5000}
         />
       </div>
@@ -139,6 +141,7 @@ const Onama = () => {
           src={'/baners/about3.jpg'}
           className='object-cover w-full h-full'
           width={5000}
+          alt={'Zlatara Alex'}
           height={5000}
         />
       </div>

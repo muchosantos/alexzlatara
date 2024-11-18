@@ -1,7 +1,6 @@
 'use client'
 import Nav from './../custom/Nav'
 import { useMenuContext } from '@/context/menus'
-import FilterMenu from '../custom/FilterMenu'
 import Overlay from '../custom/Overlay'
 import { useEffect } from 'react'
 import SearchMenu from '../custom/SearchMenu'
@@ -47,7 +46,7 @@ const Main = ({ children, navBg, light }) => {
       document.body.style.width = `auto`
       document.removeEventListener('touchmove', handleTouchMove)
     }
-  }, [openFilter, openSearch, openCart, openMenu])
+  }, [openFilter, openSearch, openCart, openMenu, handleTouchMove])
 
   return (
     <div>
@@ -55,19 +54,6 @@ const Main = ({ children, navBg, light }) => {
       {children}
 
       <AnimatePresence>
-        {/* {openFilter && (
-          <>
-            <Overlay
-              key='overlay-filter'
-              setOpen={() => setOpenFilter(false)}
-            />
-            <FilterMenu
-              key='filter-menu'
-              setOpen={() => setOpenFilter(false)}
-            />
-          </>
-        )} */}
-
         {openSearch && (
           <>
             <Overlay

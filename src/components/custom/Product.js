@@ -107,13 +107,13 @@ export const ProductLandingSection = ({ item, images }) => {
           </button>
         </div>
         <ProductGarantySection />
-
+        {/* 
         <div
           className='text-[0.7rem] text-gray-400 my-[1rem] lg:text-[1rem] xl:text-[1rem] 2xl:text-[1rem]'
           style={{ fontFamily: 'var(--font-lato)' }}
         >
           SKU:PE-01-DAER-41
-        </div>
+        </div> */}
 
         <AccordionSection item={item} />
       </div>
