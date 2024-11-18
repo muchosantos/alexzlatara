@@ -52,7 +52,7 @@ const Nav = ({ navBg, light }) => {
       <div
         className={`px-[1rem] py-6 flex items-center justify-between md:px-[2rem] lg:px-[4rem] xl:px-[4rem] mx-auto`}
       >
-        <div
+        {/* <div
           className='block md:hidden lg:hidden xl:hidden 2xl:hidden'
           onClick={() => setOpenMenu(true)}
         >
@@ -64,21 +64,25 @@ const Nav = ({ navBg, light }) => {
           >
             MENU
           </h1>
-        </div>
+        </div> */}
 
-        <div className='hidden md:block  xl:hidden 2xl:hidden'>
+        <div
+          className='md:block  xl:hidden 2xl:hidden'
+          onClick={() => setOpenMenu(true)}
+        >
           <Hamburger
-            toggled={isOpen}
+            // toggled={isOpen}
             toggle={setOpen}
             hideOutline={true}
             size={36}
-            // color={light ? '#fff' : '#000'}
+            // color={'#fff'}
+            color={light ? '#fff' : '#000'}
           />
         </div>
 
         <div className='lg:flex items-center '>
           <h1
-            className='logo text-[2.5rem] font-medium tracking-tighter  lg:mr-10 2xl:mr-10 cursor-pointer xl:text-[3.2rem]'
+            className='logo ml-10 md:ml-0 text-[2.5rem] font-medium tracking-tighter  lg:mr-10 2xl:mr-10 cursor-pointer xl:text-[3.2rem]'
             style={{ color: light ? '#fff' : '#000' }}
             onClick={() => router.push('/')}
           >
