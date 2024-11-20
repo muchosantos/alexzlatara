@@ -14,7 +14,7 @@ const CartMenu = ({ setOpen }) => {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 75 }}
       transition={{ duration: 0.2, delay: 0.1 }}
-      className='w-full h-full fixed top-0 right-0 bg-white z-[1000] md:w-[75vw]  lg:w-[50vw] xl:w-[30vw] py-10 px-[1.5rem] xl:px-[2rem] overflow-scroll'
+      className='w-full h-[100%] fixed top-0 right-0 bg-white z-[1000] md:w-[75vw]  lg:w-[50vw] xl:w-[30vw] py-10 px-[1.5rem] xl:px-[2rem] overflow-y-scroll'
     >
       <div onClick={() => setOpen(false)} className='cursor-pointer w-fit'>
         <MdOutlineArrowBackIos size={26} />
