@@ -57,7 +57,7 @@ export const ProductLandingSection = ({ item, images }) => {
             <CarouselItem>
               <div className='bg-slate-50 h-[50vh] xl:h-[76vh] 2xl:h-[76vh] mb-[2rem] cursor-pointer'>
                 <Image
-                  src={images[1]} // ispravna putanja
+                  src={images[0]} // ispravna putanja
                   alt='Opis slike'
                   width={5000} // postavite na željenu širinu
                   height={5000} // postavite na željenu visinu

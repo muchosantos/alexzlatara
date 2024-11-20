@@ -46,7 +46,8 @@ const Product = async ({ params }) => {
     .find()
 
   const item = items[0]
-  const images = item.media.items.map((img) => img.image.url)
+  const images =
+    item.media.items && item.media.items.map((img) => img.image.url)
 
   if (!item) {
     return notFound()
