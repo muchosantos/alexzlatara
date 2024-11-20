@@ -26,27 +26,27 @@ const Main = ({ children, navBg, light }) => {
     }
   }
 
-  useEffect(() => {
-    const isAnyOpen = openFilter || openSearch || openCart || openMenu
-    if (isAnyOpen) {
-      const width = document.body.clientWidth
-      document.body.style.overflowY = 'hidden'
-      document.body.style.width = `${width}px`
-      document.addEventListener('touchmove', handleTouchMove, {
-        passive: false,
-      })
-    } else {
-      document.body.style.overflowY = 'visible'
-      document.body.style.width = `auto`
-      document.removeEventListener('touchmove', handleTouchMove)
-    }
+  // useEffect(() => {
+  //   const isAnyOpen = openFilter || openSearch || openCart || openMenu
+  //   if (isAnyOpen) {
+  //     const width = document.body.clientWidth
+  //     document.body.style.overflowY = 'hidden'
+  //     document.body.style.width = `${width}px`
+  //     document.addEventListener('touchmove', handleTouchMove, {
+  //       passive: false,
+  //     })
+  //   } else {
+  //     document.body.style.overflowY = 'visible'
+  //     document.body.style.width = `auto`
+  //     document.removeEventListener('touchmove', handleTouchMove)
+  //   }
 
-    return () => {
-      document.body.style.overflowY = 'visible'
-      document.body.style.width = `auto`
-      document.removeEventListener('touchmove', handleTouchMove)
-    }
-  }, [openFilter, openSearch, openCart, openMenu, handleTouchMove])
+  //   return () => {
+  //     document.body.style.overflowY = 'visible'
+  //     document.body.style.width = `auto`
+  //     document.removeEventListener('touchmove', handleTouchMove)
+  //   }
+  // }, [openFilter, openSearch, openCart, openMenu, handleTouchMove])
 
   return (
     <div>
