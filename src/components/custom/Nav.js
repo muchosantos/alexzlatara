@@ -13,6 +13,8 @@ import { useCart } from '@/context/cart'
 const Nav = ({ navBg, light }) => {
   const [isOpen, setOpen] = useState(false)
 
+  console.log(open)
+
   const { setOpenSearch, setOpenCart, setOpenMenu } = useMenuContext()
   const { cartTotalQuantity } = useCart()
   const router = useRouter()
