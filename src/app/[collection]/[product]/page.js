@@ -47,7 +47,7 @@ const Product = async ({ params }) => {
 
   const item = items[0]
   const images =
-    item.media.items && item.media.items.map((img) => img.image.url)
+    item && item.media.items ? item.media.items.map((img) => img.image.url) : []
 
   const getRecommendedCollection =
     await wixClient.collections.getCollectionBySlug('recommended')
@@ -119,8 +119,6 @@ const CarouselSection = ({ recommended, collection }) => {
 }
 
 const CarouselSectionRecommend = ({ recommended }) => {
-  console.log(recommended.map((item) => item.additionalInfoSections[4]))
-
   return (
     <div className='my-[5rem] relative'>
       <span
@@ -142,7 +140,7 @@ const CarouselSectionRecommend = ({ recommended }) => {
                 priceData={item.priceData.price}
                 image={item.media.mainMedia.image}
                 slug={item.slug}
-                collection={''}
+                collection={item.additionalInfoSections[4].title}
                 gallery={item.media.items}
               />
             </CarouselItem>
