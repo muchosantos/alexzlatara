@@ -20,7 +20,7 @@ export const metadata = {
   description:
     'Alex zlatara je prestižna radnja koja nudi vrhunske, ručno rađene zlatne i srebrne nakite. Naši dizajni kombinuju klasičnu eleganciju i moderni šarm, savršeni za svaki trenutak.',
   icons: {
-    icon: 'favicon.ico',
+    icon: '/favicon.ico',
   },
 }
 
