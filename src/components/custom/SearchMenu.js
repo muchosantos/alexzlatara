@@ -35,10 +35,10 @@ const SearchMenu = ({ setOpen }) => {
       title: 'Narukvice',
       url: '/narukvice',
     },
-    // {
-    //   title: 'Ogrlice',
-    //   url: '/ogrlice',
-    // },
+    {
+      title: 'Ogrlice',
+      url: '/ogrlice',
+    },
     {
       title: 'Mindjuše',
       url: '/mindjuse',

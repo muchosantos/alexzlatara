@@ -39,7 +39,7 @@ const Product = async ({ params }) => {
     collection
   )
 
-  const { items: recommended } = await wixClient.products
+  const { items: similiar } = await wixClient.products
     .queryProducts()
     .eq('collectionIds', getCollection.collection._id)
     .limit(6)
@@ -48,6 +48,14 @@ const Product = async ({ params }) => {
   const item = items[0]
   const images =
     item.media.items && item.media.items.map((img) => img.image.url)
+
+  const getRecommendedCollection =
+    await wixClient.collections.getCollectionBySlug('recommended')
+
+  const { items: recommended } = await wixClient.products
+    .queryProducts()
+    .eq('collectionIds', getRecommendedCollection.collection._id)
+    .find()
 
   if (!item) {
     return notFound()
@@ -60,9 +68,9 @@ const Product = async ({ params }) => {
         <BreadCrumbSection collection={collection} product={product} />
         <ProductLandingSection item={item} images={images} />
         {/* preporuceni fetch */}
-        <CarouselSection recommended={recommended} collection={collection} />
+        <CarouselSection recommended={similiar} collection={collection} />
         {/* recommended fetch */}
-        {/*  <CarouselSectionRecommend /> */}
+        <CarouselSectionRecommend recommended={recommended} />
       </div>
 
       <Footer />
@@ -110,7 +118,9 @@ const CarouselSection = ({ recommended, collection }) => {
   )
 }
 
-const CarouselSectionRecommend = () => {
+const CarouselSectionRecommend = ({ recommended }) => {
+  console.log(recommended.map((item) => item.additionalInfoSections[4]))
+
   return (
     <div className='my-[5rem] relative'>
       <span
@@ -121,12 +131,20 @@ const CarouselSectionRecommend = () => {
       </span>
       <Carousel className='w-full'>
         <CarouselContent className='-ml-1'>
-          {Array.from({ length: 10 }).map((_, index) => (
+          {recommended.map((item, index) => (
             <CarouselItem
               key={index}
               className='pl-1 md:basis-1/2 lg:basis-1/3 xl:basis-1/3 2xl:basis-1/4 '
             >
-              <ProductBox />
+              <ProductBox
+                price={false}
+                title={item.name}
+                priceData={item.priceData.price}
+                image={item.media.mainMedia.image}
+                slug={item.slug}
+                collection={''}
+                gallery={item.media.items}
+              />
             </CarouselItem>
           ))}
         </CarouselContent>

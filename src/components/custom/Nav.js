@@ -32,10 +32,10 @@ const Nav = ({ navBg, light }) => {
       title: 'Narukvice',
       url: '/narukvice',
     },
-    // {
-    //   title: 'Ogrlice',
-    //   url: '/ogrlice',
-    // },
+    {
+      title: 'Ogrlice',
+      url: '/ogrlice',
+    },
     {
       title: 'Mindjuše',
       url: '/mindjuse',

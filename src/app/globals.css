@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* body {
+  background-color: #000;
+} */
+
 .logo {
   font-family: 'Cormorant Garamond', serif;
 }
@@ -100,8 +104,8 @@
 .homepageText {
   font-weight: 200;
   color: #fff;
-  letter-spacing: -0.02rem;
-  max-width: 450px;
+
+  max-width: 500px;
   width: 80%;
   margin: 0 auto;
   line-height: 1.5;

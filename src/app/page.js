@@ -9,7 +9,7 @@ const sections = [
     title: 'Prstenje',
     description: 'Predivno prstenje za posebne trenutke, uspomene i ljubav.',
     theme: 'rgba(214, 231, 246, 0.45)',
-    text: 'black',
+    text: 'white',
     image: '/images/prstenje2.jpg',
     url: 'prstenje',
   },
@@ -17,7 +17,7 @@ const sections = [
     title: 'Burme',
     description: 'Elegantne burme za važne trenutke, ljubav i predanost.',
     theme: 'rgba(214, 231, 246, 0.45)',
-    text: 'black',
+    text: 'white',
     image: '/images/burme.jpg',
     url: 'burme',
   },
@@ -26,25 +26,25 @@ const sections = [
     description:
       'Izuzetne narukvice koje osvajaju šarmom, ističu jedinstvenost i odišu elegancijom.',
     theme: 'rgba(255, 242, 0, 0.05)',
-    text: 'black',
+    text: 'white',
     image: '/images/shad.jpg',
     url: 'narukvice',
   },
-  // {
-  //   title: 'Ogrlice',
-  //   description:
-  //     'Ogrlice koje pričaju priču, osvajaju sofisticiranošću i naglašavaju lepotu.',
-  //   theme: 'rgba(214, 231, 246, 0.45)',
-  //   text: 'black',
-  //   image: '/images/ogrlice.jpg',
-  //   url: 'ogrlice',
-  // },
+  {
+    title: 'Ogrlice',
+    description:
+      'Ogrlice koje pričaju priču, osvajaju sofisticiranošću i naglašavaju lepotu.',
+    theme: 'rgba(214, 231, 246, 0.45)',
+    text: 'white',
+    image: '/images/oggr.jpg',
+    url: 'ogrlice',
+  },
   {
     title: 'Mindjuše',
     description:
-      'Ogrlice koje pričaju priču, osvajaju sofisticiranošću i naglašavaju lepotu svakog trenutka.',
+      'Minđuše koje obogaćuju svaki trenutak svojom neodoljivom privlačnošću.',
     theme: 'rgba(255, 242, 0, 0.05)',
-    text: 'black',
+    text: 'white',
     image: '/images/mindjuse.jpg',
     url: 'mindjuse',
   },
@@ -53,8 +53,8 @@ const sections = [
     description:
       'Privesci koji nose simboliku, očaravaju detaljima i čuvaju uspomene.',
     theme: 'rgba(214, 231, 246, 0.45)',
-    text: 'black',
-    image: '/images/privesci.jpg',
+    text: 'white',
+    image: '/images/privesciii.jpg',
     url: 'privesci',
   },
 ]
