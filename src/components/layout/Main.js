@@ -49,7 +49,7 @@ const Main = ({ children, navBg, light }) => {
   // }, [openFilter, openSearch, openCart, openMenu, handleTouchMove])
 
   return (
-    <div>
+    <main>
       <Nav navBg={navBg} light={light} />
       {children}
 
@@ -76,7 +76,7 @@ const Main = ({ children, navBg, light }) => {
 
         {openMenu && <Menu key='menu' setOpen={() => setOpenMenu(false)} />}
       </AnimatePresence>
-    </div>
+    </main>
   )
 }
 

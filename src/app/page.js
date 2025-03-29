@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Main from './../components/layout/Main'
 import ModelsWrapper from '@/components/home/ModelsWrapper'
 import ModelSection from '@/components/home/ModelSection'
@@ -62,9 +61,9 @@ const sections = [
 export default function Home() {
   return (
     <Main navBg={'transparent'} light={true}>
-      <div>
+      <section>
         <ModelsWrapper>
-          <div>
+          <section>
             {sections.map((section, i) => (
               // ModelSection je svaka sekcija posebno - mindjuse, narukvice, ogrlice...
               <ModelSection
@@ -84,9 +83,9 @@ export default function Home() {
                 }
               />
             ))}
-          </div>
+          </section>
         </ModelsWrapper>
-      </div>
+      </section>
     </Main>
   )
 }

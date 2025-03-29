@@ -1,8 +1,16 @@
-import CollectionBaner from '@/components/custom/CollectionBaner'
-import Footer from '@/components/custom/Footer'
-import SpaceFromTop from '@/components/custom/SpaceFromTop'
-import Main from '@/components/layout/Main'
+import dynamic from 'next/dynamic'
 import Image from 'next/image'
+
+const CollectionBaner = dynamic(() =>
+  import('@/components/custom/CollectionBaner')
+)
+const Footer = dynamic(() => import('@/components/custom/Footer'))
+const SpaceFromTop = dynamic(() => import('@/components/custom/SpaceFromTop'))
+const Main = dynamic(() => import('@/components/layout/Main'))
+
+export const metadata = {
+  title: 'O nama',
+}
 
 const Onama = () => {
   return (
@@ -48,7 +56,7 @@ const Onama = () => {
         />
       </div>
 
-      <div className='px-[1.5rem] md:px-[2rem] lg:px-[4rem] my-[5rem]'>
+      <section className='px-[1.5rem] md:px-[2rem] lg:px-[4rem] my-[5rem]'>
         <div className='w-[85%] my-[5rem]'>
           <span
             style={{ fontFamily: 'var(--font-lato)' }}
@@ -86,7 +94,7 @@ const Onama = () => {
             životnu prekretnicu ili jednostavno želite da nagradite sebe.
           </p>
         </div>
-      </div>
+      </section>
 
       <div className='relative w-full h-[50vh]'>
         <Image

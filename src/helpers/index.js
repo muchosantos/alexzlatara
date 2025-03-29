@@ -23,6 +23,8 @@ export const chooseDescription = (collection) => {
     return 'Privesci su jedinstveni detalji koji mogu dodati ličnu notu svakom komadu nakita ili preneti posebnu poruku. Dostupni su u raznim oblicima, stilovima i materijalima, poput zlata, belog zlata i platine, često ukrašeni dragim kamenjem. Svaki privesak nosi svoju priču i predstavlja poseban dodir koji osvežava i ističe vaš stil.'
   } else if (collection === 'O nama') {
     return 'Zlatara Alex je prestižna radnja koja nudi vrhunske, ručno rađene zlatne i srebrne nakite. Naši dizajni kombinuju klasičnu eleganciju i moderni šarm, savršeni za svaki trenutak.'
+  } else if (collection === 'Korpa') {
+    return '*Unesite lične informacije i nastavite sa poručivanjem. Nakon poručivanja očekujte poziv od strane našeg tima iz Zlatare Alex radi potvrde i dodatnih informacija.'
   }
 }
 

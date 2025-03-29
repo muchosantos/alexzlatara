@@ -19,7 +19,7 @@ const ModelSection = ({ sectionID, overlayNode, image, ...props }) => {
   }, [sectionRef, sectionID, overlayNode, registerModel])
 
   return (
-    <div {...props} ref={sectionRef}>
+    <section {...props} ref={sectionRef}>
       <Image
         src={image}
         alt={'Alex Zlatara'}
@@ -31,7 +31,7 @@ const ModelSection = ({ sectionID, overlayNode, image, ...props }) => {
         width={5000}
         height={5000}
       />
-    </div>
+    </section>
   )
 }
 

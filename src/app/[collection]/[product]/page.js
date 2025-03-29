@@ -24,6 +24,68 @@ import { wixServer } from '@/lib/wixServer'
 import { notFound } from 'next/navigation'
 import { ProductLandingSection } from '@/components/custom/Product'
 
+async function getProductData(collectionSlug, productSlug) {
+  const wixClient = await wixServer()
+
+  const { items: productItems } = await wixClient.products
+    .queryProducts()
+    .eq('slug', productSlug)
+    .find()
+
+  const getCollection = await wixClient.collections.getCollectionBySlug(
+    collectionSlug
+  )
+
+  const { items: similarProducts } = await wixClient.products
+    .queryProducts()
+    .eq('collectionIds', getCollection.collection._id)
+    .limit(6)
+    .find()
+
+  const getRecommendedCollection =
+    await wixClient.collections.getCollectionBySlug('recommended')
+
+  const { items: recommended } = await wixClient.products
+    .queryProducts()
+    .eq('collectionIds', getRecommendedCollection.collection._id)
+    .find()
+
+  return {
+    product: productItems[0],
+    collection: getCollection.collection,
+    similarProducts,
+    recommended,
+  }
+}
+
+export async function generateMetadata({ params }) {
+  const { product } = await getProductData(params.collection, params.product)
+
+  if (!product) return {}
+
+  return {
+    title: `${product.name}`,
+    description:
+      product.description ||
+      `Otkrijte jedinstveni nakit ${product.name} iz Alex Zlatara kolekcije. Ručno izrađen i pažljivo osmišljen nakit za svaki trenutak.`,
+    openGraph: {
+      title: `${product.name} - Alex Zlatara`,
+      description:
+        product.description ||
+        `Otkrijte jedinstveni nakit ${product.name} iz Alex Zlatara kolekcije. Ručno izrađen i pažljivo osmišljen nakit za svaki trenutak.`,
+      url: `https://alexzlatara.com/${params.collection}/${params.product}`,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} - Alex Zlatara`,
+      description:
+        product.description ||
+        `Otkrijte jedinstveni nakit ${product.name} iz Alex Zlatara kolekcije. Ručno izrađen i pažljivo osmišljen nakit za svaki trenutak.`,
+    },
+  }
+}
+
 const Product = async ({ params }) => {
   const collection = params.collection
   const product = params.product

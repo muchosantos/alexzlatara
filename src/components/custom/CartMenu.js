@@ -4,9 +4,11 @@ import Image from 'next/image'
 import { MdOutlineArrowBackIos } from 'react-icons/md'
 import { useCart } from '@/context/cart'
 import { formatPrice } from '@/helpers'
+import { useRouter } from 'next/navigation'
 
 const CartMenu = ({ setOpen }) => {
   const { cart, cartTotalQuantity, cartTotalAmount } = useCart()
+  const router = useRouter()
 
   return (
     <motion.div
@@ -103,7 +105,10 @@ const CartMenu = ({ setOpen }) => {
           <button
             style={{ fontFamily: 'var(--font-lato)' }}
             className='border border-black w-full mt-4 rounded-[30px] py-3 bg-[#fff] text-[#1b1b1b]'
-            onClick={() => setOpen(false)}
+            onClick={() => {
+              router.push('/cart')
+              setOpen(false)
+            }}
           >
             Nastavite na poručivanje
           </button>
@@ -115,7 +120,7 @@ const CartMenu = ({ setOpen }) => {
 
 export default CartMenu
 
-const CartItem = ({ item }) => {
+export const CartItem = ({ item }) => {
   const { removeFromCart } = useCart()
 
   return (

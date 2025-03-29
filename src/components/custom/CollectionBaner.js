@@ -10,14 +10,22 @@ import {
   BreadcrumbSeparator,
 } from '../ui/breadcrumb'
 
-const CollectionBaner = ({ collection, search, searchedKeyword, about }) => {
+const CollectionBaner = ({
+  collection,
+  search,
+  searchedKeyword,
+  about,
+  cart,
+}) => {
   const safeCollection =
     typeof collection === 'string' ? collection : 'default.jpg'
 
   // Formiraj putanju ka slici
-  const imagePath = !about
-    ? `/baners/${safeCollection}.jpg`
-    : '/baners/onama.jpg'
+  const imagePath = cart
+    ? '/baners/prsten.jpg'
+    : about
+    ? '/baners/onama.jpg'
+    : `/baners/${safeCollection}.jpg`
 
   return (
     <div className='md:block lg:flex w-full justify-between h-[100%] relative'>
