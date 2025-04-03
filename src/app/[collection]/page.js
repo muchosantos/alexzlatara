@@ -42,6 +42,9 @@ export async function generateMetadata({ params }) {
       title: `${collectionName} - Alex Zlatara`,
       description: `Ekskluzivna kolekcija ${collectionName} iz ponude Alex Zlatara. Otkrijte ručno izrađeni zlatni i srebrni nakit za posebne trenutke.`,
     },
+    alternates: {
+      canonical: `https://alexzlatara.com/${params.collection}`,
+    },
   }
 }
 

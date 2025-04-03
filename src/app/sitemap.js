@@ -5,12 +5,17 @@ export default async function sitemap() {
 
   const collections = await wixClient.collections.queryCollections().find()
 
-  const collectionUrls = collections.items.map((collection) => ({
+  // ✅ Izbacujemo all-products kolekciju ako postoji u CMS-u
+  const filteredCollections = collections.items.filter(
+    (c) => c.slug !== 'all-products'
+  )
+
+  const collectionUrls = filteredCollections.map((collection) => ({
     url: `https://alexzlatara.com/${collection.slug}`,
     lastModified: new Date().toISOString(),
   }))
 
-  const productUrlsPromises = collections.items.map(async (collection) => {
+  const productUrlsPromises = filteredCollections.map(async (collection) => {
     const products = await wixClient.products
       .queryProducts()
       .eq('collectionIds', collection._id)
